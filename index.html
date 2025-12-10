@@ -69,8 +69,9 @@
         }
         
         .logo-image {
+            border-radius: 5px;
             height: 100%;
-            max-height: 50px;
+            max-height: 400px;
             width: auto;
             object-fit: contain;
         }
@@ -87,17 +88,22 @@
             color: var(--primary);
         }
         
-        /* Navigation avec sous-menus */
+        /* Navigation avec sous-menus - CENTRÉ */
         nav {
             display: flex;
             align-items: center;
             gap: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .nav-links {
             display: flex;
             list-style: none;
             gap: 10px;
+            margin: 0;
+            padding: 0;
         }
         
         .nav-item {
@@ -111,10 +117,12 @@
             font-size: 15px;
             padding: 8px 15px;
             display: flex;
-         justify-content: center;
+            justify-content: center;
+            align-items: center;
             gap: 5px;
             transition: color 0.3s;
             font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
         }
         
         .nav-link:hover {
@@ -188,6 +196,7 @@
             transform: rotate(180deg);
         }
         
+        /* Boutons d'authentification à droite - HORS DU MENU */
         .auth-buttons {
             display: flex;
             gap: 10px;
@@ -225,6 +234,42 @@
         .btn-primary:hover {
             background: var(--primary-dark);
             color: var(--dark);
+        }
+        
+        /* Boutons Hero - taille réduite */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .hero-buttons .btn {
+            padding: 12px 25px;
+            font-size: 15px;
+        }
+        
+        /* Bouton En savoir plus - taille réduite */
+        .btn-know-more {
+            background: var(--primary);
+            color: var(--light);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            margin-top: 20px;
+            width: fit-content;
+        }
+        
+        .btn-know-more:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
         }
         
         .mobile-menu-btn {
@@ -306,6 +351,23 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 400px;
         }
         
         /* Features */
@@ -347,6 +409,9 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .feature-card:hover {
@@ -381,6 +446,8 @@
             font-weight: 400;
             font-family: 'DM Sans', sans-serif;
             line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 20px;
         }
         
         /* How It Works */
@@ -485,18 +552,100 @@
             font-family: 'DM Sans', sans-serif;
         }
         
-        /* Testimonials */
+        /* Section Partenaires */
+        .partners {
+            padding: var(--section-spacing) 0;
+            background: #f8f9fa;
+        }
+        
+        .partners-slider {
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+        
+        .partners-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 40px;
+            padding: 0 20px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 6));
+            }
+        }
+        
+        .partner-item {
+            flex: 0 0 200px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            height: 120px;
+        }
+        
+        .partner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .partner-logo {
+            max-width: 150px;
+            max-height: 70px;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        /* Testimonials Carousel - Automatique seulement */
         .testimonials {
             padding: var(--section-spacing) 0;
             background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
         }
         
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .testimonials-slider {
+            position: relative;
+            overflow: hidden;
             margin-top: 40px;
+            padding: 20px 0;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            animation: scrollTestimonials 70s linear 3;
+            gap: 30px;
+            padding: 0 20px;
+            width: max-content;
+        }
+        
+        @keyframes scrollTestimonials {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-350px * 6));
+            }
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 350px;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
         
         .testimonial-card {
@@ -505,15 +654,22 @@
             padding: 30px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 175, 55, 0.2);
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
         }
         
         .testimonial-text {
-            font-style: italic;
             margin-bottom: 20px;
             color: #f0f0f0;
             font-weight: 400;
             font-family: 'DM Sans', sans-serif;
             line-height: 1.6;
+            font-size: 16px;
+         
         }
         
         .testimonial-author {
@@ -533,12 +689,15 @@
             color: var(--dark);
             font-weight: 700;
             font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            flex-shrink: 0;
         }
         
         .author-info h4 {
             color: var(--primary);
             margin-bottom: 5px;
             font-weight: 600;
+            font-size: 16px;
             font-family: 'DM Sans', sans-serif;
         }
         
@@ -547,59 +706,6 @@
             font-size: 14px;
             font-weight: 400;
             font-family: 'DM Sans', sans-serif;
-        }
-        
-        /* Founder Section */
-        .founder {
-            padding: var(--section-spacing) 0;
-        }
-        
-        .founder-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .founder-text {
-            flex: 1;
-        }
-        
-        .founder-quote {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            line-height: 1.4;
-            color: var(--dark);
-            font-family: 'DM Sans', sans-serif;
-        }
-        
-        .founder-name {
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 20px;
-            font-family: 'DM Sans', sans-serif;
-        }
-        
-        .founder-title {
-            color: var(--gray);
-            font-size: 14px;
-            font-weight: 500;
-            font-family: 'DM Sans', sans-serif;
-        }
-        
-        .founder-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .founder-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
         
         /* CTA */
@@ -748,13 +854,131 @@
             font-family: 'DM Sans', sans-serif;
         }
         
+        /* Bouton Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 99;
+            border: none;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Section À propos simplifiée */
+        .about {
+            padding: var(--section-spacing) 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about .section-title {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        
+        .about .section-title span {
+            color: var(--primary);
+        }
+        
+        .about-description {
+            color: var(--gray);
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .about-img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 400px;
+        }
+        
         /* Responsive */
+        @media (max-width: 1200px) {
+            nav {
+                position: static;
+                transform: none;
+                flex: 1;
+                justify-content: center;
+                margin: 0 20px;
+            }
+            
+            .header-content {
+                justify-content: space-between;
+            }
+            
+            .testimonial-slide {
+                flex: 0 0 320px;
+            }
+            
+            @keyframes scrollTestimonials {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-320px * 6));
+                }
+            }
+        }
+        
         @media (max-width: 992px) {
             .hero-title {
                 font-size: 40px;
             }
             
-            .hero-content, .founder-content {
+            .hero-content, .founder-content, .about-content {
                 flex-direction: column;
                 text-align: center;
             }
@@ -772,6 +996,50 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .hero-img {
+                max-width: 400px;
+            }
+            
+            /* Ajustement du menu sur tablette */
+            nav {
+                order: 3;
+                flex: 100%;
+                margin: 20px 0 0 0;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .testimonial-slide {
+                flex: 0 0 280px;
+            }
+            
+            @keyframes scrollTestimonials {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-280px * 6));
+                }
+            }
+            
+            .partner-item {
+                flex: 0 0 180px;
+            }
+            
+            .about .section-title {
+                text-align: center;
+            }
+            
+            .about-img {
+                max-width: 400px;
             }
         }
         
@@ -794,6 +1062,8 @@
                 visibility: hidden;
                 transition: all 0.3s;
                 z-index: 99;
+                margin: 0;
+                justify-content: flex-start;
             }
             
             nav.active {
@@ -806,6 +1076,16 @@
                 flex-direction: column;
                 text-align: center;
                 width: 100%;
+                gap: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px;
+                justify-content: center;
             }
             
             .submenu {
@@ -817,6 +1097,9 @@
                 border: none;
                 padding-left: 20px;
                 display: none;
+                background: #f9f9f9;
+                margin-top: 0;
+                width: 100%;
             }
             
             .submenu::before {
@@ -825,16 +1108,6 @@
             
             .nav-item:hover .submenu {
                 display: block;
-            }
-            
-            .auth-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
             }
             
             .hero-title {
@@ -858,6 +1131,282 @@
             .logo-image {
                 max-height: 40px;
             }
+            
+            .hero-img {
+                max-width: 100%;
+                margin-top: 20px;
+            }
+            
+            .hero-img img {
+                max-height: 300px;
+            }
+            
+            /* Header layout pour mobile */
+            .header-content {
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+            
+            /* Cacher les boutons d'authentification sur mobile */
+            .auth-buttons {
+                display: none;
+            }
+            
+            /* Boutons d'authentification dans le menu mobile */
+            .mobile-auth-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            .mobile-auth-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            /* Partenaires sur mobile */
+            .partner-item {
+                flex: 0 0 150px;
+                height: 100px;
+                padding: 15px;
+            }
+            
+            .partner-logo {
+                max-width: 120px;
+                max-height: 50px;
+            }
+            
+            /* Carousel sur mobile */
+            .testimonial-slide {
+                flex: 0 0 300px;
+            }
+            
+            .testimonial-card {
+                padding: 25px;
+            }
+            
+            .testimonial-text {
+                font-size: 15px;
+            }
+            
+            @keyframes scrollTestimonials {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-300px * 6));
+                }
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            /* Boutons Hero sur mobile */
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .about-img {
+                max-width: 100%;
+            }
+            
+            .about-img img {
+                max-height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-img img {
+                max-height: 250px;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .stat-number {
+                font-size: 24px;
+            }
+            
+            .btn-know-more {
+             
+            }
+            
+            .partner-item {
+                flex: 0 0 120px;
+                height: 80px;
+                padding: 10px;
+            }
+            
+            .partner-logo {
+                max-width: 100px;
+                max-height: 40px;
+            }
+            
+            .testimonial-slide {
+                flex: 0 0 280px;
+            }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .author-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            @keyframes scrollTestimonials {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-280px * 6));
+                }
+            }
+        }
+
+        /* Section Partenaires - Modifiée pour les images avec couleurs d'origine */
+        .partners {
+            padding: var(--section-spacing) 0;
+            background: #f8f9fa;
+        }
+
+        .partners-slider {
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .partners-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 60px; /* Plus d'espace entre les logos */
+            padding: 0 20px;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-200px * 6));
+            }
+        }
+
+        .partner-item {
+            flex: 0 0 200px;
+            background: transparent; /* Fond transparent */
+            border-radius: 0; /* Pas de coins arrondis */
+            padding: 0; /* Pas de padding interne */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none; /* Pas d'ombre */
+            border: none; /* Pas de bordure */
+            transition: all 0.3s;
+            height: 120px;
+        }
+
+        .partner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: none; /* Pas d'ombre au survol */
+            border-color: transparent; /* Pas de bordure au survol */
+        }
+
+        .partner-logo {
+            max-width: 100%; /* S'adapte à la largeur du conteneur */
+            max-height: 100%; /* S'adapte à la hauteur du conteneur */
+            object-fit: contain; /* Garde les proportions de l'image */
+            opacity: 1; /* Pleine opacité */
+            transition: all 0.4s ease;
+            width: auto; /* Largeur automatique */
+            height: auto; /* Hauteur automatique */
+        }
+
+        .partner-item:hover .partner-logo {
+            opacity: 1; /* Garde la même opacité */
+            transform: scale(1.05); /* Léger zoom au survol */
+        }
+
+        /* Ajustement pour les écrans plus petits */
+        @media (max-width: 992px) {
+            .partners-track {
+                gap: 40px;
+            }
+            
+            .partner-item {
+                flex: 0 0 180px;
+                height: 100px;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-180px * 6));
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .partners-track {
+                gap: 30px;
+            }
+            
+            .partner-item {
+                flex: 0 0 150px;
+                height: 80px;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-150px * 6));
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partners-track {
+                gap: 25px;
+            }
+            
+            .partner-item {
+                flex: 0 0 130px;
+                height: 70px;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-130px * 6));
+                }
+            }
         }
     </style>
 </head>
@@ -879,9 +1428,7 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
                             <ul class="submenu">
-                                <li class="submenu-item"><a href="#features" class="submenu-link">Tous les services</a></li>
                                 <li class="submenu-item"><a href="#investisseurs" class="submenu-link">Pour investisseurs</a></li>
-                                <li class="submenu-item"><a href="#entrepreneurs" class="submenu-link">Pour entrepreneurs</a></li>
                                 <li class="submenu-item"><a href="#reprise" class="submenu-link">Reprise d'entreprise</a></li>
                             </ul>
                         </li>
@@ -895,15 +1442,19 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#apropos" class="nav-link">À propos</a>
+                            <a href="about.html" class="nav-link">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#partenaires" class="nav-link">Partenaires</a>
                         </li>
                     </ul>
-                    
-                    <div class="auth-buttons">
-                        <a href="#" class="btn btn-outline">Connexion</a>
-                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                    </div>
                 </nav>
+                
+                <!-- Boutons d'authentification à droite (visible sur desktop et tablette) -->
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Connexion</a>
+                    <a href="#" class="btn btn-primary">S'inscrire</a>
+                </div>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -923,7 +1474,7 @@
                         Rejoignez notre plateforme pour découvrir des opportunités d'investissement uniques et participer 
                         à la croissance économique du continent.
                     </p>
-                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                    <div class="hero-buttons">
                         <a href="#" class="btn btn-primary">Découvrir les projets</a>
                         <a href="#" class="btn btn-outline">Voir comment ça marche</a>
                     </div>
@@ -944,31 +1495,52 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="hero-img" style="
-                        width: 100%;
-                        max-width: 500px;
-                        height: 400px;
-                        background: linear-gradient(135deg, #000000, #D4AF37);
-                        border-radius: 20px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: white;
-                        font-size: 24px;
-                        font-weight: bold;
-                        font-family: 'DM Sans', sans-serif;
-                    ">
-                        <div style="text-align: center; padding: 20px;">
-                            <i class="fas fa-globe-africa" style="font-size: 60px; margin-bottom: 20px; color: #D4AF37;"></i>
-                            <div style="font-weight: 600; margin-bottom: 5px;">Plateforme d'investissement</div>
-                            <div style="font-weight: 500;">Afrique - Monde</div>
-                        </div>
+                    <div class="hero-img">
+                      <img src="images/sourire-femme-affaires-serrer-main-a-partenaire.jpg" alt="BridgeCapital - Plateforme d'investissement africaine">
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
+
+<!-- Section À propos - Version simplifiée -->
+<section class="about" id="apropos-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">À propos de <span>BridgeCapital</span></h2>
+                <p class="about-description">
+                    BridgeCapital est la plateforme leader de mise en relation entre investisseurs internationaux 
+                    et entrepreneurs africains. Nous connectons le capital mondial avec les opportunités 
+                    prometteuses du continent africain, en facilitant les investissements et les reprises d'entreprises 
+                    avec transparence et expertise.
+                </p>
+                
+                <p class="about-description">
+                    Notre équipe combine une connaissance approfondie des marchés africains avec une expertise 
+                    internationale en investissement, garantissant des transactions sécurisées et réussies 
+                    pour tous nos partenaires.
+                </p>
+                
+                <a href="#apropos" class="btn-know-more" style="margin-top: 20px;">
+                    Découvrir notre histoire complète
+                </a>
+            </div>
+            
+            <div class="about-image">
+                <div class="about-img">
+                    <img src="images/main.png" alt="BridgeCapital - Notre équipe">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
@@ -989,6 +1561,7 @@
                         Nous vous proposons des opportunités d'investissement triées sur le volet 
                         dans divers secteurs porteurs.
                     </p>
+                    <a href="#investisseurs" class="btn-know-more">En savoir plus</a>
                 </div>
                 
                 <div class="feature-card">
@@ -1000,28 +1573,7 @@
                         Vous souhaitez reprendre une entreprise en Afrique ? Nous mettons en relation 
                         repreneurs et entrepreneurs souhaitant céder leur société pour une transition réussie.
                     </p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="feature-title">Business Plans Experts</h3>
-                    <p class="feature-desc">
-                        Bénéficiez de l'expertise d'Oswald MICHODIGNI pour des business plans professionnels 
-                        qui maximisent vos chances de succès auprès des investisseurs.
-                    </p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Due Diligence</h3>
-                    <p class="feature-desc">
-                        Analyse approfondie des opportunités d'investissement avec vérification 
-                        des états financiers, de la viabilité du modèle économique et du management.
-                    </p>
+                    <a href="#reprise" class="btn-know-more">En savoir plus</a>
                 </div>
             </div>
         </div>
@@ -1063,7 +1615,7 @@
         </div>
     </section>
     
-    <!-- Sectors -->
+    <!-- Secteurs -->
     <section class="sectors" id="secteurs">
         <div class="container">
             <h2 class="section-title">Secteurs d'Investissement</h2>
@@ -1117,7 +1669,62 @@
         </div>
     </section>
     
-    <!-- Testimonials -->
+    <!-- Section Partenaires -->
+<section class="partners" id="partenaires">
+    <div class="container">
+        <h2 class="section-title">Nos Partenaires</h2>
+        <p class="section-subtitle">
+            Nous collaborons avec des institutions financières et organisations de renom 
+            pour garantir la réussite de nos investissements
+        </p>
+        
+        <div class="partners-slider">
+            <div class="partners-track">
+                <!-- Logos des partenaires - images sans cadre -->
+                <div class="partner-item">
+                    <img src="images/partenaire1.png" alt="Partenaire 1" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire2.png" alt="Partenaire 2" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire3.png" alt="Partenaire 3" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire1.png" alt="Partenaire 4" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire2.png" alt="Partenaire 5" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire3.png" alt="Partenaire 6" class="partner-logo">
+                </div>
+                
+                <!-- Duplication pour l'effet infini continu -->
+                <div class="partner-item">
+                    <img src="images/partenaire1.png" alt="Partenaire 1" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire2.png" alt="Partenaire 2" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire3.png" alt="Partenaire 3" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire1.png" alt="Partenaire 4" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire2.png" alt="Partenaire 5" class="partner-logo">
+                </div>
+                <div class="partner-item">
+                    <img src="images/partenaire3.png" alt="Partenaire 6" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Testimonials Carousel - Automatique seulement -->
     <section class="testimonials" id="temoignages">
         <div class="container">
             <h2 class="section-title" style="color: white;">Ce que disent nos membres</h2>
@@ -1125,45 +1732,151 @@
                 Découvrez les retours d'expérience de nos investisseurs et entrepreneurs
             </p>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "Grâce à BridgeCapital, j'ai pu investir dans une startup agroalimentaire au Sénégal. 
-                        Le processus était transparent et professionnel de bout en bout."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">S</div>
-                        <div class="author-info">
-                            <h4>Sophie Martin</h4>
-                            <p>Investisseuse, Paris</p>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <!-- Témoignages en boucle -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "Grâce à BridgeCapital, j'ai pu investir dans une startup agroalimentaire au Sénégal. 
+                                Le processus était transparent et professionnel de bout en bout."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">S</div>
+                                <div class="author-info">
+                                    <h4>Sophie Martin</h4>
+                                    <p>Investisseuse, Paris</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "Nous avons levé 500 000€ pour notre fintech grâce à BridgeCapital. 
-                        La plateforme nous a connectés avec les bons investisseurs."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">K</div>
-                        <div class="author-info">
-                            <h4>Kwame Nkrumah</h4>
-                            <p>CEO FinTech Ghana</p>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "Nous avons levé 500 000€ pour notre fintech grâce à BridgeCapital. 
+                                La plateforme nous a connectés avec les bons investisseurs."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">K</div>
+                                <div class="author-info">
+                                    <h4>Kwame Nkrumah</h4>
+                                    <p>CEO FinTech Ghana</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "En tant que repreneur, BridgeCapital m'a permis de trouver l'entreprise parfaite 
-                        au Maroc. L'accompagnement a été exceptionnel."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">J</div>
-                        <div class="author-info">
-                            <h4>Jean Dubois</h4>
-                            <p>Repreneur d'entreprise</p>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "En tant que repreneur, BridgeCapital m'a permis de trouver l'entreprise parfaite 
+                                au Maroc. L'accompagnement a été exceptionnel."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">J</div>
+                                <div class="author-info">
+                                    <h4>Jean Dubois</h4>
+                                    <p>Repreneur d'entreprise</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "BridgeCapital a transformé notre PME ivoirienne. Grâce à leur réseau d'investisseurs, 
+                                nous avons pu moderniser notre équipement en 18 mois."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">A</div>
+                                <div class="author-info">
+                                    <h4>Amina Diop</h4>
+                                    <p>Directrice Générale, Agro-Industrie</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "Le support de BridgeCapital a été crucial pour notre expansion au Nigeria. 
+                                Leur expertise du marché local est inestimable."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">C</div>
+                                <div class="author-info">
+                                    <h4>Chukwuemeka Okoro</h4>
+                                    <p>Fondateur, Tech Startup Lagos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "Investir via BridgeCapital m'a donné confiance dans le marché africain. 
+                                La due diligence était approfondie et les rendements sont excellents."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">M</div>
+                                <div class="author-info">
+                                    <h4>Michael Schmidt</h4>
+                                    <p>Investisseur, Berlin</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Duplication pour effet infini -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "Grâce à BridgeCapital, j'ai pu investir dans une startup agroalimentaire au Sénégal. 
+                                Le processus était transparent et professionnel de bout en bout."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">S</div>
+                                <div class="author-info">
+                                    <h4>Sophie Martin</h4>
+                                    <p>Investisseuse, Paris</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "Nous avons levé 500 000€ pour notre fintech grâce à BridgeCapital. 
+                                La plateforme nous a connectés avec les bons investisseurs."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">K</div>
+                                <div class="author-info">
+                                    <h4>Kwame Nkrumah</h4>
+                                    <p>CEO FinTech Ghana</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "En tant que repreneur, BridgeCapital m'a permis de trouver l'entreprise parfaite 
+                                au Maroc. L'accompagnement a été exceptionnel."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">J</div>
+                                <div class="author-info">
+                                    <h4>Jean Dubois</h4>
+                                    <p>Repreneur d'entreprise</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1171,45 +1884,14 @@
         </div>
     </section>
     
-    <!-- Founder Section -->
-    <section class="founder" id="apropos">
-        <div class="container">
-            <div class="founder-content">
-                <div class="founder-text">
-                    <p class="founder-quote">
-                        "BridgeCapital est bien plus qu'une plateforme : c'est un pont durable entre les investisseurs internationaux 
-                        et l'immense potentiel entrepreneurial africain."
-                    </p>
-                    <p style="color: var(--gray); margin-bottom: 20px; font-family: 'DM Sans', sans-serif;">
-                        Avec plus de 10 ans d'expérience dans l'entrepreneuriat et le conseil en investissement, 
-                        j'ai créé BridgeCapital pour répondre à un besoin crucial : faciliter les connexions entre 
-                        capitaux internationaux et opportunités africaines.
-                    </p>
-                    <div class="founder-name">Oswald MICHODIGNI</div>
-                    <div class="founder-title">Serial Entrepreneur & Fondateur de BridgeCapital</div>
-                </div>
-                <div class="founder-image">
-                    <div class="founder-img" style="
-                        background: linear-gradient(135deg, #D4AF37, #B8860B);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #000000;
-                        font-size: 40px;
-                    ">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     
-    <!-- FAQ -->
+    
+    <!-- FAQ - Augmenté à 6 questions -->
     <section class="faq" id="faq">
         <div class="container">
             <h2 class="section-title">Questions Fréquentes</h2>
             <p class="section-subtitle">
-                Trouvez rapidement des réponses à vos questions
+                Trouvez rapidement des réponses à vos questions les plus courantes
             </p>
             
             <div class="faq-container">
@@ -1229,7 +1911,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>L'inscription et la consultation des opportunités sont gratuites. Des frais de succès s'appliquent uniquement lorsque la transaction est finalisée, avec un pourcentage prélevé sur le montant investi ou levé.</p>
+                        <p>L'inscription et la consultation des opportunités sont gratuites. Des frais de succès s'appliquent uniquement lorsque la transaction est finalisée, avec un pourcentage prélevé sur le montant investi ou levé. Ces frais sont toujours transparents et communiqués à l'avance.</p>
                     </div>
                 </div>
                 
@@ -1239,7 +1921,37 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Notre équipe analyse chaque projet selon des critères stricts : viabilité économique, qualité de l'équipe, potentiel de croissance, et impact social. Seuls les meilleurs projets sont présentés à nos investisseurs.</p>
+                        <p>Notre équipe analyse chaque projet selon des critères stricts : viabilité économique, qualité de l'équipe, potentiel de croissance, et impact social. Seuls les meilleurs projets sont présentés à nos investisseurs. Nous effectuons une due diligence approfondie sur chaque entreprise.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quels sont les montants d'investissement minimum ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Les montants varient selon les projets, allant généralement de 10 000€ à plusieurs millions d'euros. Nous proposons des opportunités adaptées à différents profils d'investisseurs, des particuliers aux institutions. Vous pouvez filtrer les projets selon votre budget dans votre espace personnel.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment sont sécurisées les transactions ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Toutes les transactions passent par des intermédiaires financiers agréés. Nous utilisons des contrats juridiques solides adaptés à chaque pays, et notre équipe accompagne chaque étape du processus. La sécurité de vos investissements est notre priorité absolue.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quelle est la durée moyenne d'un investissement ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Les durées varient selon les projets et les secteurs. Généralement, les investissements en capital-risque ont une durée de 3 à 7 ans, tandis que les reprises d'entreprises peuvent offrir des retours plus rapides. Chaque opportunité présente clairement son horizon temporel et ses projections de rendement.</p>
                     </div>
                 </div>
             </div>
@@ -1280,6 +1992,7 @@
                         <li><a href="#features">Services</a></li>
                         <li><a href="#fonctionnement">Fonctionnement</a></li>
                         <li><a href="#secteurs">Secteurs</a></li>
+                        <li><a href="#partenaires">Partenaires</a></li>
                         <li><a href="#temoignages">Témoignages</a></li>
                         <li><a href="#apropos">À propos</a></li>
                     </ul>
@@ -1317,6 +2030,11 @@
         </div>
     </footer>
     
+    <!-- Bouton Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
     <script>
         // Menu mobile
         document.addEventListener('DOMContentLoaded', function() {
@@ -1338,7 +2056,7 @@
             });
             
             // Fermer le menu en cliquant sur un lien
-            const navLinks = document.querySelectorAll('.nav-link, .submenu-link, .auth-buttons a');
+            const navLinks = document.querySelectorAll('.nav-link, .submenu-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     if (window.innerWidth <= 768) {
@@ -1381,6 +2099,26 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+            
+            // Back to Top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            // Afficher/cacher le bouton selon le scroll
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Scroll vers le haut quand on clique sur le bouton
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
         });

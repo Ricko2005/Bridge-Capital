@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | BridgeCapital - Plateforme d'Investissement Africaine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        :root {
+            --primary: #D4AF37; /* Or */
+            --primary-dark: #B8860B;
+            --secondary: #000000; /* Noir */
+            --dark: #000000; /* Noir */
+            --light: #FFFFFF; /* Blanc */
+            --gray: #666666;
+            --gray-light: #F8F9FA;
+            --success: #D4AF37;
+            --gold-light: #F5E8C7;
+            --gold-dark: #B8860B;
+            --section-spacing: 80px;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            height: 50px;
+        }
+        
+        .logo-image {
+            border-radius: 5px;
+            height: 100%;
+            max-height: 400px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+            font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section - À Propos */
+        .about-hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 134, 11, 0.05) 100%);
+            z-index: 1;
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .about-hero-title {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: -1px;
+        }
+        
+        .about-hero-title span {
+            color: var(--primary);
+        }
+        
+        .about-hero-subtitle {
+            font-size: 20px;
+            color: #cccccc;
+            margin-bottom: 30px;
+            max-width: 600px;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            color: #999999;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        
+        .breadcrumb i {
+            font-size: 12px;
+        }
+        
+        /* Section Mission Vision */
+        .mission-vision {
+            padding: var(--section-spacing) 0;
+            background: var(--gray-light);
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .mv-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mv-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        
+        .mv-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .mv-description {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.7;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        /* Valeurs */
+        .values {
+            padding: var(--section-spacing) 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+        
+        .value-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+        
+        .value-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .value-desc {
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        /* Histoire */
+        .history {
+            padding: var(--section-spacing) 0;
+        }
+        
+        .history-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .history-text {
+            flex: 1;
+        }
+        
+        .history-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .history-description {
+            color: var(--gray);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .history-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .history-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .history-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        /* Équipe */
+        .team {
+            padding: var(--section-spacing) 0;
+            background: var(--gray-light);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .team-role {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .team-desc {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        /* Chiffres */
+        .numbers {
+            padding: var(--section-spacing) 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: white;
+        }
+        
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .number-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .number-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .number-label {
+            font-size: 16px;
+            color: #cccccc;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        /* Section Fondations Marketing - Adaptée */
+        .marketing-foundation {
+            padding: var(--section-spacing) 0;
+            background: white;
+        }
+        
+        .foundation-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .foundation-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .foundation-subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .foundation-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+            margin-top: 30px;
+        }
+        
+        .foundation-card {
+            width: 240px;
+            padding: 30px 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-height: 220px;
+        }
+        
+        .foundation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+        
+        .foundation-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--dark);
+            color: var(--primary);
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 2px solid var(--primary);
+        }
+        
+        .foundation-card h3 {
+            margin-top: 20px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .foundation-card p {
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: 0.9;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        /* Couleurs adaptées au thème BridgeCapital - dégradés dorés et noirs */
+        .foundation-card-1 { 
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); 
+        }
+        .foundation-card-2 { 
+            background: linear-gradient(135deg, #C19B2E 0%, #A37709 100%); 
+        }
+        .foundation-card-3 { 
+            background: linear-gradient(135deg, #AD8725 0%, #8D6807 100%); 
+        }
+        .foundation-card-4 { 
+            background: linear-gradient(135deg, #9A741C 0%, #785906 100%); 
+        }
+        .foundation-card-5 { 
+            background: linear-gradient(135deg, #866113 0%, #634A05 100%); 
+        }
+        .foundation-card-6 { 
+            background: linear-gradient(135deg, #724E0A 0%, #4E3B04 100%); 
+        }
+        .foundation-card-7 { 
+            background: linear-gradient(135deg, #5E3B01 0%, #392C03 100%); 
+        }
+        
+        /* CTA */
+        .about-cta {
+            padding: var(--section-spacing) 0;
+            text-align: center;
+        }
+        
+        .about-cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .about-cta-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333333;
+            color: #999999;
+            font-size: 14px;
+            font-weight: 400;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 99;
+            border: none;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-hero-title {
+                font-size: 42px;
+            }
+            
+            .history-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .history-img {
+                max-width: 400px;
+            }
+            
+            .mv-card {
+                padding: 30px;
+            }
+            
+            .foundation-card {
+                width: 200px;
+                min-height: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                z-index: 99;
+                margin: 0;
+                justify-content: flex-start;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px;
+                justify-content: center;
+            }
+            
+            .about-hero-title {
+                font-size: 36px;
+            }
+            
+            .about-hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .mv-card {
+                padding: 25px;
+            }
+            
+            .history-img {
+                max-width: 100%;
+            }
+            
+            .number-value {
+                font-size: 36px;
+            }
+            
+            .about-cta-title {
+                font-size: 28px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .foundation-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .foundation-card {
+                width: 100%;
+                max-width: 400px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero-title {
+                font-size: 32px;
+            }
+            
+            .about-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .mv-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .mv-title {
+                font-size: 22px;
+            }
+            
+            .history-title {
+                font-size: 28px;
+            }
+            
+            .number-value {
+                font-size: 32px;
+            }
+            
+            .foundation-title {
+                font-size: 28px;
+            }
+            
+            .foundation-subtitle {
+                font-size: 16px;
+            }
+            
+            .foundation-card h3 {
+                font-size: 16px;
+            }
+            
+            .foundation-card p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="BridgeCapital" class="logo-image">
+                </a>
+                
+                <nav id="mainNav">
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#services" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#fonctionnement" class="nav-link">Comment ça marche</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#secteurs" class="nav-link">Secteurs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#temoignages" class="nav-link">Témoignages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="apropos.html" class="nav-link" style="color: var(--primary);">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#partenaires" class="nav-link">Partenaires</a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Connexion</a>
+                    <a href="#" class="btn btn-primary">S'inscrire</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section - À Propos -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1 class="about-hero-title">Notre <span>Histoire</span> et Notre <span>Mission</span></h1>
+                <p class="about-hero-subtitle">
+                    Découvrez BridgeCapital, la plateforme qui transforme l'investissement en Afrique en connectant 
+                    capitaux internationaux et opportunités entrepreneuriales du continent.
+                </p>
+                
+                <div class="breadcrumb">
+                    <a href="index.html">Accueil</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>À propos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="mv-title">Notre Mission</h3>
+                    <p class="mv-description">
+                        Faciliter l'accès au capital pour les PME et startups africaines tout en offrant 
+                        aux investisseurs internationaux des opportunités d'investissement rentables, 
+                        sécurisées et impactantes. Nous construisons des ponts durables entre les 
+                        capitaux mondiaux et le potentiel entrepreneurial africain.
+                    </p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="mv-title">Notre Vision</h3>
+                    <p class="mv-description">
+                        Devenir le principal catalyseur d'investissements transfrontaliers en Afrique, 
+                        en révélant le potentiel économique du continent et en contribuant à son 
+                        développement durable. Nous aspirons à connecter 1 000 entreprises africaines 
+                        avec des investisseurs internationaux d'ici 2030.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Nos Valeurs -->
+    <section class="values">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 20px; color: var(--dark);">
+                Nos Valeurs Fondamentales
+            </h2>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 50px; font-size: 18px;">
+                Les principes qui guident chacune de nos actions et décisions
+            </p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Transparence</h3>
+                    <p class="value-desc">
+                        Communication claire et honnête à chaque étape du processus d'investissement.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Confiance</h3>
+                    <p class="value-desc">
+                        Établir des relations durables basées sur la fiabilité et l'intégrité.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-desc">
+                        Solutions créatives adaptées aux défis uniques des marchés africains.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-desc">
+                        Standards élevés dans la sélection des projets et l'accompagnement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Notre Histoire -->
+    <section class="history">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 20px; color: var(--dark);">
+                Notre Histoire
+            </h2>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 50px; font-size: 18px;">
+                Le parcours qui nous a menés à devenir le leader de l'investissement en Afrique
+            </p>
+            
+            <div class="history-content">
+                <div class="history-text">
+                    <h3 class="history-title">De l'idée à la réalité</h3>
+                    <p class="history-description">
+                        Fondée en 2018 par Oswald MICHODIGNI, BridgeCapital est née d'une observation simple mais 
+                        fondamentale : un énorme fossé séparait les investisseurs internationaux désireux de 
+                        participer à la croissance africaine des entrepreneurs locaux à la recherche de capitaux.
+                    </p>
+                    <p class="history-description">
+                        Après plus de 10 ans d'expérience dans l'entrepreneuriat et le conseil en investissement, 
+                        Oswald a identifié la nécessité d'une plateforme qui combine expertise locale et 
+                        connectivité internationale. C'est ainsi qu'est né BridgeCapital, avec pour objectif de 
+                        créer un écosystème d'investissement transparent, sécurisé et mutuellement bénéfique.
+                    </p>
+                    <p class="history-description">
+                        Aujourd'hui, nous opérons dans 15 pays africains et avons facilité plus de 50 millions 
+                        d'euros d'investissements, contribuant ainsi à la création de milliers d'emplois et au 
+                        développement économique durable du continent.
+                    </p>
+                </div>
+                <div class="history-image">
+                    <div class="history-img">
+                        <img src="images/about-history.jpg" alt="Histoire de BridgeCapital">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Notre Équipe -->
+    <section class="team">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 20px; color: var(--dark);">
+                Notre Équipe
+            </h2>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 50px; font-size: 18px;">
+                Des experts passionnés par le développement de l'Afrique
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/founder.jpg" alt="Oswald MICHODIGNI" class="team-img">
+                    <div class="team-info">
+                        <h3 class="team-name">Oswald MICHODIGNI</h3>
+                        <p class="team-role">Fondateur & CEO</p>
+                        <p class="team-desc">
+                            Plus de 10 ans d'expérience en entrepreneuriat et conseil en investissement. 
+                            Passionné par le développement économique de l'Afrique.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <img src="images/team1.jpg" alt="Directrice des Investissements" class="team-img">
+                    <div class="team-info">
+                        <h3 class="team-name">Amina Diallo</h3>
+                        <p class="team-role">Directrice des Investissements</p>
+                        <p class="team-desc">
+                            Ancienne analyste financière chez Goldman Sachs. Expertise en due diligence 
+                            et structuration de transactions complexes.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <img src="images/team2.jpg" alt="Responsable Relations Investisseurs" class="team-img">
+                    <div class="team-info">
+                        <h3 class="team-name">Jean-Luc Martin</h3>
+                        <p class="team-role">Responsable Relations Investisseurs</p>
+                        <p class="team-desc">
+                            15 ans d'expérience en gestion de patrimoine. Spécialiste des marchés 
+                            émergents et des investissements impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chiffres Clés -->
+    <section class="numbers">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 20px; color: white;">
+                Notre Impact en Chiffres
+            </h2>
+            <p style="text-align: center; color: #cccccc; max-width: 700px; margin: 0 auto 50px; font-size: 18px;">
+                Des résultats concrets qui témoignent de notre engagement
+            </p>
+            
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <div class="number-value">50+</div>
+                    <div class="number-label">Projets financés</div>
+                </div>
+                
+                <div class="number-card">
+                    <div class="number-value">200+</div>
+                    <div class="number-label">Investisseurs actifs</div>
+                </div>
+                
+                <div class="number-card">
+                    <div class="number-value">15+</div>
+                    <div class="number-label">Pays africains</div>
+                </div>
+                
+                <div class="number-card">
+                    <div class="number-value">€50M+</div>
+                    <div class="number-label">Capital investi</div>
+                </div>
+                
+                <div class="number-card">
+                    <div class="number-value">2,500+</div>
+                    <div class="number-label">Emplois créés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fondations Marketing - Section adaptée -->
+    <section class="marketing-foundation">
+        <div class="container">
+            <div class="foundation-container">
+                <h2 class="foundation-title">Notre Fondation Stratégique</h2>
+                <p class="foundation-subtitle">
+                    Les piliers essentiels qui construisent une base solide pour notre succès et celui de nos partenaires
+                </p>
+                
+                <div class="foundation-cards">
+                    <div class="foundation-card foundation-card-1">
+                        <span class="foundation-number">01</span>
+                        <h3>Vision & Mission</h3>
+                        <p>Une déclaration claire de ce que nous voulons réaliser à long terme et de notre raison d'être</p>
+                    </div>
+                    
+                    <div class="foundation-card foundation-card-2">
+                        <span class="foundation-number">02</span>
+                        <h3>Objectifs & Cibles</h3>
+                        <p>Des objectifs spécifiques, mesurables et limités dans le temps pour notre équipe et nos partenaires</p>
+                    </div>
+                    
+                    <div class="foundation-card foundation-card-3">
+                        <span class="foundation-number">03</span>
+                        <h3>Audience Cible</h3>
+                        <p>Comprendre précisément les personnes que nous cherchons à atteindre avec nos efforts</p>
+                    </div>
+                    
+                    <div class="foundation-card foundation-card-4">
+                        <span class="foundation-number">04</span>
+                        <h3>Canaux & Tactiques</h3>
+                        <p>Les plateformes et méthodes spécifiques utilisées pour délivrer notre message</p>
+                    </div>
+                    
+                    <div class="foundation-card foundation-card-5">
+                        <span class="foundation-number">05</span>
+                        <h3>Stratégie de Contenu</h3>
+                        <p>Ce que nous créons et partageons pour connecter avec notre audience</p>
+                    </div>
+                    
+                    <div class="foundation-card foundation-card-6">
+                        <span class="foundation-number">06</span>
+                        <h3>Budget & Ressources</h3>
+                        <p>Allocation des fonds et actifs aux activités les plus impactantes</p>
+                    </div>
+                    
+                    <div class="foundation-card foundation-card-7">
+                        <span class="foundation-number">07</span>
+                        <h3>Mesure & Reporting</h3>
+                        <p>Un cadre pour suivre les résultats et évaluer l'efficacité de notre approche</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="about-cta">
+        <div class="container">
+            <h2 class="about-cta-title">Rejoignez notre mission</h2>
+            <p class="about-cta-subtitle">
+                Que vous soyez investisseur recherchant des opportunités ou entrepreneur 
+                à la recherche de financement, BridgeCapital est la plateforme qu'il vous faut.
+            </p>
+            <div>
+                <a href="#" class="btn btn-primary">S'inscrire maintenant</a>
+                <a href="index.html#contact" class="btn btn-outline">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="images/logo.png" alt="BridgeCapital" style="height: 40px; width: auto;">
+                    </a>
+                    <p style="color: #cccccc; margin-top: 15px; font-family: 'DM Sans', sans-serif;">
+                        Plateforme de connexion entre investisseurs internationaux 
+                        et startups/PME africaines. Construisons ensemble l'avenir de l'Afrique.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#fonctionnement">Fonctionnement</a></li>
+                        <li><a href="index.html#secteurs">Secteurs</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="index.html#partenaires">Partenaires</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Légal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@bridgecapital.com">contact@bridgecapital.com</a></li>
+                        <li><a href="#">+229 43 23 02 68</a></li>
+                        <li>Cotonou, Bénin</li>
+                        <li>
+                            <div style="display: flex; gap: 15px; margin-top: 15px;">
+                                <a href="#" style="color: #D4AF37; font-size: 20px;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="color: #D4AF37; font-size: 20px;"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" style="color: #D4AF37; font-size: 20px;"><i class="fab fa-facebook"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 BridgeCapital. Tous droits réservés. | Une plateforme conçue pour révéler le potentiel économique africain.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bouton Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu mobile
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Fermer le menu en cliquant sur un lien
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        mainNav.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+            
+            // Back to Top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scroll pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
