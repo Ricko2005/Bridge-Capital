@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription | BridgeCapital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D4AF37; /* Or */
+            --primary-dark: #B8860B;
+            --secondary: #000000; /* Noir */
+            --dark: #000000; /* Noir */
+            --light: #FFFFFF; /* Blanc */
+            --gray: #666666;
+            --gray-light: #f5f5f5;
+            --gray-border: #e0e0e0;
+            --gold-light: #F5E8C7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            height: 45px;
+        }
+        
+        .logo-image {
+            height: 100%;
+            max-height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .back-home {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .back-home:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Content */
+        .auth-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+        }
+        
+        .auth-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Left Side - Illustration */
+        .auth-left {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        }
+        
+        .auth-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .auth-icon {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 40px;
+        }
+        
+        .auth-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .auth-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+        
+        .auth-features {
+            list-style: none;
+            text-align: left;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        .auth-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .auth-features i {
+            color: var(--dark);
+            font-size: 16px;
+        }
+        
+        /* Right Side - Form */
+        .auth-right {
+            flex: 1;
+            padding: 50px;
+        }
+        
+        .form-header {
+            margin-bottom: 30px;
+        }
+        
+        .form-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .form-header p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+        
+        .form-header a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .form-header a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Form Styles */
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .form-label span {
+            font-size: 12px;
+            color: var(--gray);
+            font-weight: 400;
+        }
+        
+        .form-control {
+            padding: 14px 16px;
+            border: 1.5px solid var(--gray-border);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .form-control.error {
+            border-color: #dc3545;
+        }
+        
+        .error-message {
+            font-size: 12px;
+            color: #dc3545;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .password-input {
+            position: relative;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        /* Checkbox */
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .form-check-input {
+            margin-top: 4px;
+            accent-color: var(--primary);
+        }
+        
+        .form-check-label {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+        
+        .form-check-label a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-check-label a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gray-border);
+        }
+        
+        /* Social Login */
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1.5px solid var(--gray-border);
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .social-btn:hover {
+            border-color: var(--primary);
+            background: var(--gold-light);
+        }
+        
+        .social-btn i {
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 400;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #999999;
+            font-size: 12px;
+            font-weight: 400;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .auth-wrapper {
+                flex-direction: column;
+                max-width: 600px;
+            }
+            
+            .auth-left,
+            .auth-right {
+                padding: 40px;
+            }
+            
+            .auth-left {
+                padding-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 20px 0;
+            }
+            
+            .auth-left,
+            .auth-right {
+                padding: 30px 25px;
+            }
+            
+            .auth-title,
+            .form-header h1 {
+                font-size: 28px;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .auth-left,
+            .auth-right {
+                padding: 25px 20px;
+            }
+            
+            .auth-title,
+            .form-header h1 {
+                font-size: 24px;
+            }
+            
+            .auth-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+            
+            .auth-features {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="BridgeCapital" class="logo-image">
+                </a>
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i>
+                    Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-container">
+        <div class="container">
+            <div class="auth-wrapper">
+                <!-- Left Side - Illustration -->
+                <div class="auth-left">
+                    <div class="auth-content">
+                        <div class="auth-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h2 class="auth-title">Rejoignez BridgeCapital</h2>
+                        <p class="auth-subtitle">Commencez votre parcours d'investissement en Afrique</p>
+                        <ul class="auth-features">
+                            <li><i class="fas fa-check-circle"></i> Accès à des projets africains vérifiés</li>
+                            <li><i class="fas fa-check-circle"></i> Mise en relation avec des investisseurs</li>
+                            <li><i class="fas fa-check-circle"></i> Accompagnement personnalisé</li>
+                            <li><i class="fas fa-check-circle"></i> Transactions sécurisées</li>
+                            <li><i class="fas fa-check-circle"></i> Support dédié 24/7</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Side - Form -->
+                <div class="auth-right">
+                    <div class="form-header">
+                        <h1>Créer un compte</h1>
+                        <p>Déjà membre ? <a href="login.html">Connectez-vous ici</a></p>
+                    </div>
+
+                    <form class="auth-form" id="signupForm">
+                        <div class="form-group">
+                            <label class="form-label" for="fullName">
+                                Nom complet
+                                <span>*</span>
+                            </label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Ex: Jean Dupont" required>
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">
+                                Adresse email
+                                <span>*</span>
+                            </label>
+                            <input type="email" id="email" class="form-control" placeholder="votre@email.com" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">
+                                Numéro de téléphone
+                                <span>*</span>
+                            </label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+229 XX XX XX XX" required>
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="userType">
+                                Vous êtes
+                                <span>*</span>
+                            </label>
+                            <select id="userType" class="form-control" required>
+                                <option value="">Sélectionnez votre profil</option>
+                                <option value="investor">Investisseur</option>
+                                <option value="entrepreneur">Entrepreneur</option>
+                                <option value="both">Les deux</option>
+                            </select>
+                            <div class="error-message" id="userTypeError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="password">
+                                Mot de passe
+                                <span>*</span>
+                            </label>
+                            <div class="password-input">
+                                <input type="password" id="password" class="form-control" placeholder="Minimum 8 caractères" required>
+                                <button type="button" class="password-toggle" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="error-message" id="passwordError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="confirmPassword">
+                                Confirmer le mot de passe
+                                <span>*</span>
+                            </label>
+                            <div class="password-input">
+                                <input type="password" id="confirmPassword" class="form-control" placeholder="Répétez votre mot de passe" required>
+                                <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="error-message" id="confirmPasswordError"></div>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="terms" class="form-check-input" required>
+                            <label for="terms" class="form-check-label">
+                                J'accepte les <a href="#">Conditions d'utilisation</a> et la 
+                                <a href="#">Politique de confidentialité</a> de BridgeCapital
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="newsletter" class="form-check-input">
+                            <label for="newsletter" class="form-check-label">
+                                Je souhaite recevoir les newsletters et offres exclusives de BridgeCapital
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Créer mon compte
+                        </button>
+
+                        <div class="divider">
+                            ou continuer avec
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="social-btn">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <button type="button" class="social-btn">
+                                <i class="fab fa-linkedin"></i>
+                                LinkedIn
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="images/logo.png" alt="BridgeCapital" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
+                    </a>
+                    <p style="color: #cccccc; margin-top: 15px;">
+                        Plateforme de connexion entre investisseurs internationaux 
+                        et startups/PME africaines.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#secteurs">Secteurs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Légal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@bridgecapital.com">contact@bridgecapital.com</a></li>
+                        <li><a href="#">+229 43 23 02 68</a></li>
+                        <li>Cotonou, Bénin</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 BridgeCapital. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle password visibility
+            const togglePassword = document.getElementById('togglePassword');
+            const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            
+            togglePassword.addEventListener('click', function() {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+            
+            toggleConfirmPassword.addEventListener('click', function() {
+                const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPassword.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+            
+            // Form validation
+            const signupForm = document.getElementById('signupForm');
+            
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Reset errors
+                document.querySelectorAll('.error-message').forEach(el => {
+                    el.classList.remove('show');
+                });
+                
+                document.querySelectorAll('.form-control').forEach(el => {
+                    el.classList.remove('error');
+                });
+                
+                // Validate name
+                const name = document.getElementById('fullName');
+                if (!name.value.trim()) {
+                    document.getElementById('nameError').textContent = 'Le nom complet est requis';
+                    document.getElementById('nameError').classList.add('show');
+                    name.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Validate email
+                const email = document.getElementById('email');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim()) {
+                    document.getElementById('emailError').textContent = 'L\'email est requis';
+                    document.getElementById('emailError').classList.add('show');
+                    email.classList.add('error');
+                    isValid = false;
+                } else if (!emailRegex.test(email.value)) {
+                    document.getElementById('emailError').textContent = 'Format d\'email invalide';
+                    document.getElementById('emailError').classList.add('show');
+                    email.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Validate phone
+                const phone = document.getElementById('phone');
+                if (!phone.value.trim()) {
+                    document.getElementById('phoneError').textContent = 'Le numéro de téléphone est requis';
+                    document.getElementById('phoneError').classList.add('show');
+                    phone.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Validate user type
+                const userType = document.getElementById('userType');
+                if (!userType.value) {
+                    document.getElementById('userTypeError').textContent = 'Veuillez sélectionner votre profil';
+                    document.getElementById('userTypeError').classList.add('show');
+                    userType.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Validate password
+                const passwordValue = password.value;
+                if (!passwordValue) {
+                    document.getElementById('passwordError').textContent = 'Le mot de passe est requis';
+                    document.getElementById('passwordError').classList.add('show');
+                    password.classList.add('error');
+                    isValid = false;
+                } else if (passwordValue.length < 8) {
+                    document.getElementById('passwordError').textContent = 'Minimum 8 caractères';
+                    document.getElementById('passwordError').classList.add('show');
+                    password.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Validate confirm password
+                const confirmPasswordValue = confirmPassword.value;
+                if (!confirmPasswordValue) {
+                    document.getElementById('confirmPasswordError').textContent = 'Veuillez confirmer votre mot de passe';
+                    document.getElementById('confirmPasswordError').classList.add('show');
+                    confirmPassword.classList.add('error');
+                    isValid = false;
+                } else if (passwordValue !== confirmPasswordValue) {
+                    document.getElementById('confirmPasswordError').textContent = 'Les mots de passe ne correspondent pas';
+                    document.getElementById('confirmPasswordError').classList.add('show');
+                    confirmPassword.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Validate terms
+                const terms = document.getElementById('terms');
+                if (!terms.checked) {
+                    alert('Veuillez accepter les conditions d\'utilisation');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Simulate form submission
+                    const submitBtn = signupForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Création du compte...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert('Compte créé avec succès ! Redirection vers votre tableau de bord...');
+                        window.location.href = 'dashboard.html'; // Change this to your actual dashboard URL
+                    }, 1500);
+                }
+            });
+            
+            // Social login buttons
+            document.querySelectorAll('.social-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const platform = this.textContent.trim();
+                    alert(`Connexion avec ${platform} - Cette fonctionnalité sera bientôt disponible !`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
