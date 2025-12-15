@@ -696,47 +696,32 @@
             font-family: 'DM Sans', sans-serif;
         }
         
-        /* CTA */
-        .cta {
-            padding: var(--section-spacing) 0;
+         /* CTA */
+        .cta-section {
+            background: var(--dark);
+            color: var(--light);
             text-align: center;
-            background: linear-gradient(135deg, var(--dark), #1a1a1a);
-            color: white;
-            border-radius: 30px;
-            margin-bottom: 80px;
+            padding: 80px 0;
         }
-        
+
         .cta-title {
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 32px;
             margin-bottom: 20px;
-            font-family: 'DM Sans', sans-serif;
         }
-        
+
         .cta-subtitle {
             font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-            font-weight: 400;
-            font-family: 'DM Sans', sans-serif;
-            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #cccccc;
         }
-        
-        .btn-light {
-            background: var(--primary);
-            color: var(--dark);
-            padding: 15px 35px;
-            font-size: 16px;
-            font-weight: 600;
-            font-family: 'DM Sans', sans-serif;
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-        
-        .btn-light:hover {
-            background: var(--primary-dark);
-            color: var(--dark);
-        }
-        
+
         /* FAQ */
         .faq {
             padding: var(--section-spacing) 0;
