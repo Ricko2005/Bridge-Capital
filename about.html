@@ -69,6 +69,7 @@
             max-height: 45px;
             width: auto;
             object-fit: contain;
+            border-radius: 5px;
         }
 
         nav {
@@ -275,14 +276,7 @@
             color: var(--black);
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--gold);
-            margin: 10px auto 30px;
-        }
+       
 
         /* Histoire */
         .histoire-content {
@@ -514,11 +508,11 @@
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 28px;
+                font-size: 40px;
             }
             
             .section-title {
-                font-size: 24px;
+                font-size: 28px;
             }
             
             .mission-grid,
@@ -715,38 +709,7 @@
         </div>
     </section>
 
-    <!-- Section Approche -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Notre Approche</h2>
-            <div class="approche-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Identification</h3>
-                    <p>Sélection rigoureuse des projets</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Structuration</h3>
-                    <p>Préparation des dossiers d'investissement</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Connexion</h3>
-                    <p>Mise en relation avec les investisseurs</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Suivi</h3>
-                    <p>Accompagnement après investissement</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Section CTA -->
     <section class="cta-section">
         <div class="container">

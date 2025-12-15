@@ -63,6 +63,7 @@ header {
     max-height: 45px;
     width: auto;
     object-fit: contain;
+    border-radius: 5px;
 }
 
 /* Navigation centrée - Desktop */
